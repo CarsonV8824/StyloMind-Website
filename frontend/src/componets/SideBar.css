@@ -1,0 +1,44 @@
+.sidebar {
+  position: fixed;
+  left: 20px;
+  top: 20px;
+  width: 220px;
+  height: calc(100vh - 40px);
+  background: #222;
+  border-radius: 12px;
+  padding: 20px;
+  box-sizing: border-box;
+
+  display: flex;
+  flex-direction: column;
+  justify-content: center;   /* vertical centering */
+  align-items: center;       /* horizontal centering */
+  gap: 12px;
+}
+
+.sideBarButton {
+  width: 100%;
+  max-width: 180px;
+  min-height: 56px;
+  padding: 0 12px;
+  margin: 0;
+
+  border: 0;
+  border-radius: 12px;
+  background-color: #4da6ff;
+  color: #fff;
+
+  font-size: 20px;           /* reduced from 38px */
+  font-weight: 700;
+  line-height: 1.2;
+  white-space: nowrap;       /* prevent wrap */
+  overflow: hidden;
+  text-overflow: ellipsis;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.sideBarButton:hover {
+  background-color: #66b3ff;
+}

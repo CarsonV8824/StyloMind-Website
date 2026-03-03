@@ -1,4 +1,7 @@
-my-app/
+# StyloMind-Website
+
+```
+StyloMind-Website/
 │
 ├── backend/
 │   ├── app/

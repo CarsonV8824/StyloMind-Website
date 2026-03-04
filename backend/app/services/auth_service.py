@@ -3,6 +3,7 @@ from backend.app.db.session import get_connection
 from backend.app.models.auth_model import (
     CREATE_AUTH_TOKENS_TABLE_SQL,
     CREATE_USERS_TABLE_SQL,
+    CREATE_TEXT_ENTRIES_TABLE_SQL
 )
 from backend.app.utils.security import (
     generate_salt,
@@ -16,8 +17,8 @@ def initialize_auth_storage() -> None:
     with get_connection() as connection:
         connection.execute(CREATE_USERS_TABLE_SQL)
         connection.execute(CREATE_AUTH_TOKENS_TABLE_SQL)
+        connection.execute(CREATE_TEXT_ENTRIES_TABLE_SQL)
         connection.commit()
-
 
 def register_user(username: str, password: str) -> dict[str, str]:
     normalized_username = username.strip().lower()

@@ -1,33 +1,26 @@
 import uvicorn
 from fastapi import FastAPI
 from fastapi.middleware.cors import CORSMiddleware
-from pydantic import BaseModel
-from typing import List
+from backend.app.api.routes import router
+from backend.app.core.config import settings
+from backend.app.services.auth_service import initialize_auth_storage
 
 app = FastAPI()
 
-#basic user model for demonstration purposes
-class User(BaseModel):
-    id: int
-
-origins = [
-    "http://localhost:3000",
-]
-
 app.add_middleware(
     CORSMiddleware,
-    allow_origins=origins,
+    allow_origins=settings.CORS_ORIGINS,
     allow_credentials=True,
     allow_methods=["*"],
-    allow_headers=["*"],)
+    allow_headers=["*"],
+)
 
-@app.get("/", response_model=User)
-def read_root():
-    return User(id=1)
+app.include_router(router)
 
-@app.post("/", response_model=User)
-def create_user(user: User):
-    return User(id=user.id)
+
+@app.on_event("startup")
+def startup_event() -> None:
+    initialize_auth_storage()
 
 if __name__ == "__main__":
-    uvicorn.run(app, host="0.0.0.0", port=8000)
+    uvicorn.run(app, host=settings.API_HOST, port=settings.API_PORT)

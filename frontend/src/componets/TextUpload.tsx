@@ -27,7 +27,7 @@ async function extractPdfText(file: File): Promise<string> {
 
 export default function TextUpload() {
   const [textContent, setTextContent] = useState<string>(() => {
-    return localStorage.getItem(STORAGE_KEY) ?? '';
+    return localStorage.getItem(STORAGE_KEY) ?? ''; // question marks are like the else statement in Python returns
   });
 
   useEffect(() => {
@@ -74,7 +74,9 @@ export default function TextUpload() {
           <pre className='uploadedText'>{textContent}</pre>
         </div>
       )}
-      {!textContent }
+      {!textContent && (
+        <p className="text">No text uploaded.</p>
+      )}
     </div>
   );
 }

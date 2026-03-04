@@ -18,3 +18,13 @@ CREATE TABLE IF NOT EXISTS auth_tokens (
     FOREIGN KEY(username) REFERENCES users(username)
 )
 """
+
+CREATE_TEXT_ENTRIES_TABLE_SQL = """
+CREATE TABLE IF NOT EXISTS text_entries (
+    id INTEGER PRIMARY KEY AUTOINCREMENT,
+    username TEXT NOT NULL,
+    text TEXT NOT NULL,
+    created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
+    FOREIGN KEY(username) REFERENCES users(username)
+)
+"""

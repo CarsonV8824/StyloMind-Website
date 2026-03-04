@@ -1,6 +1,6 @@
 import pandas as pd
 try:
-    from services.graph_NLP import style_document
+    from backend.app.services.ML_Stuff.graph_NLP import style_document
 except ModuleNotFoundError:
     from graph_NLP import style_document
 

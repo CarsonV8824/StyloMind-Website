@@ -1,8 +1,6 @@
 import re
 import numpy as np
-import seaborn as sns
-import matplotlib.pyplot as plt
-import services.graph_NLP as textTraining
+import backend.app.services.ML_Stuff.graph_NLP as textTraining
 
 # ----------------------------
 # Helper Functions
@@ -155,44 +153,6 @@ class TextDashboardAnalyzer:
                 pov_over_time[key].append((counts[key] / total) * 100 if total else 0)
 
         return pov_over_time
-
-    # ----------------------------
-    # Rendering
-    # ----------------------------
-
-    def _render_dashboard(self, metrics, lexical_diversity, pov_over_time):
-
-        self.figure.clear()
-        axs = self.figure.subplots(2, 2)
-
-        ax = axs[0, 0]
-        sns.histplot(metrics["sentence_lengths"], bins=12, kde=True, ax=ax)
-        ax.set_title("Sentence Length Distribution")
-
-        ax = axs[0, 1]
-        if lexical_diversity:
-            ax.plot(lexical_diversity)
-        ax.set_title("Lexical Diversity")
-
-        ax = axs[1, 0]
-        chunk_x = np.arange(1, len(pov_over_time["1st"]) + 1)
-        if len(chunk_x):
-            ax.plot(chunk_x, pov_over_time["1st"], label="1st")
-            ax.plot(chunk_x, pov_over_time["2nd"], label="2nd")
-            ax.plot(chunk_x, pov_over_time["3rd"], label="3rd")
-            ax.legend()
-        ax.set_title("POV Over Time")
-
-        self.figure.tight_layout()
-        self.canvas.draw()
-
-    def _render_empty_dashboard(self):
-        self.figure.clear()
-        ax = self.figure.add_subplot(111)
-        ax.text(0.5, 0.5, "No sentence data available",
-                ha="center", va="center", transform=ax.transAxes)
-        ax.set_axis_off()
-        self.canvas.draw()
 
     # ----------------------------
     # Special Sentence Extraction

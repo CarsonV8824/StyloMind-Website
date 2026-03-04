@@ -1,10 +1,12 @@
 .title {
     text-align: center;
+    color: #184066;
+    font-weight: 600;
 }
 
 .text {
     text-align: center;
     font-size: 1.2em;
-    color: #555;
-    background-color: aliceblue;
+    color: #184066;
+    font-weight: 600;
 }

@@ -1,8 +1,10 @@
+import './global_pages.css'
+
 function Stats() {
   return (
     <div>
-      <h1>Stats</h1>
-      <p>View your stats here.</p>
+      <h1 className="title">Stats</h1>
+      <p className="text">View your stats here.</p>
     </div>
   )
 }

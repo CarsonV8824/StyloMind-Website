@@ -16,14 +16,14 @@ api.interceptors.request.use((config) => {
 });
 
 export const authApi = {
-  async register(username, password) {
+  async register(username: string, password: string) {
     const res = await api.post('/auth/register', { username, password });
-    localStorage.setItem(TOKEN_KEY, res.data.access_token);
+    localStorage.setItem(TOKEN_KEY, res.data.access_token as string);
     return res.data;
   },
-  async login(username, password) {
+  async login(username: string, password: string) {
     const res = await api.post('/auth/login', { username, password });
-    localStorage.setItem(TOKEN_KEY, res.data.access_token);
+    localStorage.setItem(TOKEN_KEY, res.data.access_token as string);
     return res.data;
   },
   async me() {

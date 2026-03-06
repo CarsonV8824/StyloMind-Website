@@ -1,0 +1,43 @@
+import { useState } from 'react';
+import api from '../api/api';
+
+const STORAGE_KEY = 'uploadedText';
+
+function StatsButton() {
+  const [status, setStatus] = useState<string>('');
+
+  const handleSend = async () => {
+    const text = (localStorage.getItem(STORAGE_KEY) ?? '').trim();
+
+    if (!text) {
+      setStatus('No uploaded text found in local storage.');
+      return;
+    }
+
+    try {
+      const res = await api.post('/text', {
+        user_text: {
+          content: text,
+        },
+      });
+      localStorage.removeItem(STORAGE_KEY);
+      localStorage.setItem('analysisResult', JSON.stringify(res.data));
+      setStatus('Text sent successfully.');
+      console.log('POST /text response:', res.data);
+    } catch (error) {
+      setStatus('Failed to send text.');
+      console.error('POST /text failed:', error);
+    }
+  };
+
+  return (
+    <>
+      <button className="ComponetButton" onClick={handleSend}>
+        Send Text to Backend
+      </button>
+      {status && <p className="text">{status}</p>}
+    </>
+  );
+}
+
+export default StatsButton;

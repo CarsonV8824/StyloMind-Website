@@ -1,5 +1,4 @@
 import re
-import numpy as np
 import backend.app.services.ML_Stuff.graph_NLP as textTraining
 
 # ----------------------------
@@ -64,14 +63,13 @@ class TextDashboardAnalyzer:
     # Main Entry Point
     # ----------------------------
 
-    def analyze_text(self, chosen_text: str):
+    def analyze_text(self, chosen_text: str) -> list:
 
         sentence_data = textTraining.make_text_into_sentences_with_part_of_speech(chosen_text)
 
         non_empty_sentences = [s for s in sentence_data if s]
         if not non_empty_sentences:
-            self._render_empty_dashboard()
-            return
+            return []
 
         metrics = self._analyze_sentences(non_empty_sentences)
 
@@ -84,13 +82,19 @@ class TextDashboardAnalyzer:
         lexical_diversity = self._compute_lexical_diversity(lemmas)
         pov_over_time = self._compute_pov_over_time(non_empty_sentences)
 
-        self._render_dashboard(metrics, lexical_diversity, pov_over_time)
-
         (
             self.passive_sentences,
             self.contraction_sentences,
             self.first_second_person_sentences,
         ) = self._extract_special_sentences(non_empty_sentences, metrics)
+
+        return [
+            lexical_diversity,
+            pov_over_time,
+            self.passive_sentences,
+            self.contraction_sentences,
+            self.first_second_person_sentences,
+        ]
 
     # ----------------------------
     # Sentence Analysis

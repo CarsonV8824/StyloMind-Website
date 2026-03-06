@@ -1,4 +1,5 @@
 import pandas as pd
+from pathlib import Path
 try:
     from backend.app.services.ML_Stuff.graph_NLP import style_document
 except ModuleNotFoundError:
@@ -6,13 +7,18 @@ except ModuleNotFoundError:
 
 from sklearn.linear_model import LogisticRegression
 from sklearn.feature_extraction.text import TfidfVectorizer
-import numpy as np
 import re
 
 import joblib
 #sentences = re.split(r'(?<=[.!?])\s+', text)
+DATA_DIR = Path(__file__).resolve().parent / "data"
+BALANCED_CSV = DATA_DIR / "balanced.csv"
+MODEL_PATH = DATA_DIR / "ridge_model.pkl"
+TFIDF_PATH = DATA_DIR / "tfidf_vectorizer.pkl"
+
+
 def make_model() -> None:
-    df = pd.read_csv("services/ML Stuff/balanced.csv")
+    df = pd.read_csv(BALANCED_CSV)
 
     texts = df["text"].to_list()
     labels = df["generated"].to_list()
@@ -43,16 +49,16 @@ def make_model() -> None:
     model.fit(X, Y)
 
     # Save model + vectorizer
-    joblib.dump(model, "services/ML Stuff/ridge_model.pkl")
-    joblib.dump(tfidf, "services/ML Stuff/tfidf_vectorizer.pkl")
+    joblib.dump(model, MODEL_PATH)
+    joblib.dump(tfidf, TFIDF_PATH)
 
 def test_text_for_ai(text: str) -> dict:
     if not text:
         raise ValueError("Input text is required")
 
     # Load model + vectorizer
-    model: LogisticRegression = joblib.load("services/ML Stuff/ridge_model.pkl")
-    tfidf: TfidfVectorizer = joblib.load("services/ML Stuff/tfidf_vectorizer.pkl")
+    model: LogisticRegression = joblib.load(MODEL_PATH)
+    tfidf: TfidfVectorizer = joblib.load(TFIDF_PATH)
 
     final = {}
     sentences = re.split(r'(?<=[.!?])\s+', text)

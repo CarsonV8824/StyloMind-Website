@@ -1,0 +1,1 @@
+# Data will be stored in local storage in JavaScript for ease of use

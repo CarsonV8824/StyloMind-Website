@@ -1,44 +1,10 @@
 # StyloMind-Website
 
-## Project Structure
+## Preview
 
-```
-StyloMind-Website/
-│
-├── backend/
-│   ├── app/
-│   │   ├── main.py
-│   │   ├── api/
-│   │   │   └── routes.py
-│   │   ├── models/
-│   │   │   └── user.py
-│   │   ├── schemas/
-│   │   │   └── user_schema.py
-│   │   ├── services/
-│   │   │   └── user_service.py
-│   │   └── core/
-│   │       └── config.py
-│   │
-│   ├── requirements.txt
-│   └── .env
-│
-├── frontend/
-│   ├── src/
-│   │   ├── components/
-│   │   │   └── Navbar.jsx
-│   │   ├── pages/
-│   │   │   └── Home.jsx
-│   │   ├── services/
-│   │   │   └── api.js
-│   │   ├── App.jsx
-│   │   └── main.jsx
-│   │
-│   ├── package.json
-│   └── vite.config.js
-│
-└── README.md
+[![Preview](README/preview.png)]
 
-```
+
 ## Docs
 
 - Chart.js: https://www.chartjs.org/docs/latest/charts/bar.html

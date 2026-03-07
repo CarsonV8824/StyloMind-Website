@@ -4,6 +4,7 @@ import SideBar from './componets/SideBar'
 import Home from './pages/Home'
 import Upload from './pages/Upload'
 import Stats from './pages/Stats'
+import Footer from './componets/Footer'
 
 function App() {
   return (
@@ -17,6 +18,7 @@ function App() {
           <Route path="/stats" element={<Stats />} />
         </Routes>
       </main>
+      <Footer />
     </div>
   )
 }

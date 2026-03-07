@@ -7,7 +7,7 @@ function Graph() {
   const [dataPoints, setDataPoints] = useState<number[]>([]);
 
   useSignalEffect(() => {
-    const signalValue = TextSignal.value; // reading the signal subscribes to it
+    const signalValue = TextSignal.value;
 
     const stored = localStorage.getItem("graphData");
 

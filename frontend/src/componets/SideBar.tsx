@@ -15,6 +15,7 @@ function SideBar() {
         <button className="sideBarButton" onClick={() => navigate('/home')}>Home</button>
         <button className="sideBarButton" onClick={() => navigate('/upload')}>Upload</button>
         <button className="sideBarButton" onClick={() => navigate('/stats')}>See Stats</button>
+        <button className="sideBarButton" onClick={() => navigate('/compare')}>Compare Texts</button>
       </div>
     </div>
   )

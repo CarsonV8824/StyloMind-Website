@@ -42,6 +42,22 @@
   width: 100%;
 }
 
+.SecondaryButton {
+  background: #f4fbff;
+  border: 1px solid #184066;
+  border-radius: 12px;
+  color: #184066;
+  padding: 12px 24px;
+  font-size: 16px;
+  font-weight: 600;
+  text-decoration: none;
+  transition: background-color 0.3s ease, color 0.3s ease;
+}
+
+.SecondaryButton:hover {
+  background: #dff3fb;
+}
+
 .HomeText {
   color: #184066;
   text-align: left;
@@ -56,4 +72,240 @@
   border: 1px solid #c6e8f7;
   border-radius: 16px;
   padding: 20px;
+}
+
+.homePage {
+  gap: 24px;
+  align-items: stretch;
+  width: calc(100% + 64px);
+  margin-left: -32px;
+  margin-right: -32px;
+}
+
+.heroSection {
+  width: 100%;
+  overflow: hidden;
+  box-sizing: border-box;
+}
+
+.heroInner {
+  display: grid;
+  grid-template-columns: 1.25fr 0.95fr;
+  gap: 24px;
+  align-items: stretch;
+  width: min(1200px, 100%);
+  margin: 0 auto;
+  box-sizing: border-box;
+}
+
+.heroCopy {
+  text-align: left;
+  max-width: 720px;
+}
+
+.heroEyebrow,
+.sectionEyebrow,
+.demoLabel {
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  font-size: 0.82rem;
+  font-weight: 700;
+  color: #0d3a58;
+}
+
+.heroTitle {
+  margin: 8px 0 12px;
+  font-size: clamp(2.4rem, 4vw, 4.6rem);
+  line-height: 0.98;
+}
+
+.heroText {
+  max-width: 620px;
+  text-align: left;
+}
+
+.heroActions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 12px;
+  margin-top: 24px;
+}
+
+.heroActions .PageButton {
+  margin-top: 0;
+  text-decoration: none;
+}
+
+.heroValue {
+  color: #184066;
+  font-weight: 600;
+  margin-top: 18px;
+}
+
+.heroPreview {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.demoCard,
+.featureCard,
+.infoCard {
+  background: #f4fbff;
+  border: 1px solid #c6e8f7;
+  border-radius: 22px;
+  padding: 24px;
+  box-sizing: border-box;
+}
+
+.demoCard {
+  width: 100%;
+  max-width: 420px;
+  background: linear-gradient(180deg, #f4fbff 0%, #ffffff 100%);
+  box-shadow: 0 18px 45px rgba(18, 123, 191, 0.18);
+}
+
+.demoBlock {
+  background: #ffffff;
+  border: 1px solid #d7edf8;
+  border-radius: 18px;
+  padding: 18px;
+  margin-top: 14px;
+}
+
+.demoHeading,
+.featureTitle,
+.sectionTitle {
+  color: #184066;
+  margin: 0 0 10px;
+}
+
+.demoText,
+.featureText,
+.testimonialQuote,
+.testimonialAuthor {
+  color: #184066;
+  margin: 0;
+  line-height: 1.5;
+}
+
+.demoStats {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 12px;
+  margin-top: 16px;
+}
+
+.demoStats div {
+  background: #e8f7ff;
+  border-radius: 16px;
+  padding: 14px 12px;
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+}
+
+.demoStatValue {
+  color: #127bbf;
+  font-size: 1.4rem;
+  font-weight: 800;
+}
+
+.demoStatLabel {
+  color: #184066;
+  font-size: 0.92rem;
+  font-weight: 600;
+}
+
+.homeSection {
+  width: min(1200px, calc(100% - 64px));
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.sectionHeader {
+  text-align: left;
+  margin-bottom: 18px;
+}
+
+.featureGrid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+  gap: 16px;
+}
+
+.splitSection {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 16px;
+}
+
+.pillRow {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+  margin-top: 14px;
+}
+
+.audiencePill {
+  background: #dff3fb;
+  color: #184066;
+  border: 1px solid #b2def2;
+  border-radius: 999px;
+  padding: 10px 14px;
+  font-weight: 700;
+}
+
+.testimonialCard {
+  background: linear-gradient(180deg, #ffffff 0%, #f4fbff 100%);
+}
+
+.testimonialQuote {
+  font-size: 1.05rem;
+  font-weight: 600;
+}
+
+.testimonialAuthor {
+  margin-top: 14px;
+  font-size: 0.95rem;
+  font-weight: 700;
+}
+
+.finalCta {
+  margin-bottom: 24px;
+}
+
+.ctaCard {
+  text-align: left;
+}
+
+@media (max-width: 900px) {
+  .heroInner,
+  .splitSection {
+    grid-template-columns: 1fr;
+  }
+
+  .heroTitle {
+    font-size: clamp(2rem, 10vw, 3.3rem);
+  }
+}
+
+@media (max-width: 640px) {
+  .ContentOfTitle {
+    padding: 28px 20px;
+  }
+
+  .demoStats {
+    grid-template-columns: 1fr;
+  }
+
+  .heroActions {
+    flex-direction: column;
+    align-items: stretch;
+  }
+
+  .heroActions .PageButton,
+  .heroActions .SecondaryButton {
+    text-align: center;
+  }
 }

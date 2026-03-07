@@ -11,7 +11,7 @@ function StatsButton() {
     const text = (localStorage.getItem(STORAGE_KEY) ?? '').trim();
 
     if (!text) {
-      setStatus('No uploaded text found in local storage.');
+      alert('No uploaded text found in local storage.');
       return;
     }
 
@@ -23,8 +23,8 @@ function StatsButton() {
       });
       localStorage.removeItem(STORAGE_KEY);
       localStorage.setItem('analysisResult', JSON.stringify(res.data));
-      setStatus('Text sent successfully.');
       console.log('POST /text response:', res.data);
+      alert('Text sent successfully!');
       TextSignal.value ++; // Increment the signal to trigger updates in other components
     } catch (error) {
       setStatus('Failed to send text.');

@@ -2,7 +2,7 @@
 
 ## Preview
 
-[![Preview](README/preview.png)]
+![Preview](README/preview.png)
 
 
 ## Docs

@@ -35,7 +35,7 @@ function StatsButton() {
   return (
     <>
       <button className="ComponetButton" onClick={handleSend}>
-        Send Text to Backend
+        Check Text
       </button>
       {status && <p className="text">{status}</p>}
     </>

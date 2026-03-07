@@ -69,13 +69,13 @@ export default function TextUpload() {
       </div>
 
       {textContent && (
-        <div>
+        <div className="textPreview">
           <h4 className="text">Preview:</h4>
           <pre className='uploadedText'>{textContent}</pre>
         </div>
       )}
       {!textContent && (
-        <p className="text">No text uploaded.</p>
+        <p className="text"></p>
       )}
     </div>
   );

@@ -41,3 +41,19 @@
   padding: 40px;
   width: 100%;
 }
+
+.HomeText {
+  color: #184066;
+  text-align: left;
+  overflow-wrap: break-word;
+  white-space: normal;
+  max-width: 100%;
+  word-break: break-word; /* safer modern fallback */
+  margin-top: 20px;
+  font-size: 1.2em;
+  font-weight: 600;
+  background: #f4fbff;
+  border: 1px solid #c6e8f7;
+  border-radius: 16px;
+  padding: 20px;
+}

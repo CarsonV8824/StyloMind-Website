@@ -1,16 +1,17 @@
 import './global_pages.css'
 import StatsButton from '../componets/StatsButton';
-//import Graph from '../componets/StatsComponet';
+import Graph from '../componets/StatsComponet';
 
 function Stats() {
   return (
-    <div>
-      <div className="pageContainer">
+    
+    <div className="pageContainer">
+      <div className="ContentOfTitle">
         <h1 className="title">Stats</h1>
         <p className="text">View your stats here.</p>
-        <StatsButton />
-        {/* <Graph /> */}
       </div>
+      <StatsButton />
+      <Graph />
     </div>
   )
 }
